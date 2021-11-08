@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px;
+}
+
+body {
+  background-color: rgb(235, 235, 235);
+  font-family: "Roboto";
+  text-align: center;
+  font-size: 16px;
+  margin: 5px;
+  padding: 10px;
+  min-width: 300px;
+}
+
+h1 {
+  color: rgb(0, 133, 202);
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: rgb(232, 119, 34);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+h4 {
+  color: rgb(30, 144, 255);
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+h5 {
+  color: rgb(227, 0, 141);
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: rgb(34, 35, 34);
+  margin-bottom: 10px;
+}
+
+pre {
+  font-family: "Roboto Mono";
+  border: thin dashed darkgrey;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+code {
+  font-family: "Roboto Mono";
+}
+
+.left {
+  text-align: left;
+}
+
+.bg_pink a {
+  background-color: rgb(208, 0, 111);
+}
+
+.bg_green a {
+  background-color: rgb(196, 214, 0);
+}
+
+.bg_blue a {
+  background-color: rgb(0, 133, 202);
+}
+
+.links a {
+  color: rgb(34, 35, 34);
+  font-size: 24px;
+  border-radius: 3px;
+  margin: 10px;
+  padding: 12px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.debugging {
+  background-color: rgb(249,217,194);
+}
+
+ul, ol {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+table {
+  text-align: center;
+  border-spacing: 15px;
+  font-family: "Roboto Mono";
+}
