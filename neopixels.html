@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Shine Design</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header>
+    <a href="https://scienceoxford.com" target="_blank"><img src=".\images\so_logo.png" alt="Science Oxford Logo" width="400px" height="auto"></a>
+    <h1>Neopixels</h1>
+  </header>
+
+  <div id="intro" class="left">
+    <p>Neopixels are special LEDs connected together - you can program them all seperately from only one pin of the micro:bit!</p>
+    <p>If you are Science Oxford's workshop, you will have a choice of either a firm stick of 8, or a floppy strip of 10.</p>
+    <p>ADD PICTURE HERE</p>
+    <br>
+  </div>
+
+  <div id="wiring" class="left">
+    <h3>Wiring your Neopixels</h3>
+    <p>Connect long jump leads up to your Neopixels, so that you have wires to connect your crocodile clips to.</p>
+    <p>Neopixels have three connections:</p>
+    <ul>
+        <li>Ground / GND / - : connect this to the micro:bit's GND pin</li>
+        <li>Data / Din : connect this to the micro:bit's pin0</li>
+        <li>Power / 5V / + : connect this to the micro:bit's 3V pin</li>
+    </ul>
+    <p>ADD PICTURE HERE</p>
+    <br>
+  </div>
+
+  <div id="coding" class="left">
+    <h3>Coding your Neopixels</h3>
+    <p>To set them up, add the following lines of code:</p>
+    <pre>import neopixel
+lights = neopixel.NeoPixel(pin0, 10)</pre>
+    <br>
+    <p>In the brackets of the second line above, change <code>pin0</code> to the pin you have connected your Neopixels to, and <code>10</code> to the number of LEDs on your stick or strip.</p>
+    <br>
+    <p>Add the following code into your program and test it:</p>
+    <pre>for pixel in range(0, len(lights)):
+    lights[pixel] = (100, 0, 0)
+    lights.show()</pre>
+    <br>
+    <p>This code does the following things:</p>
+    <ul>
+        <li>Loops around every pixel in the strip, one at a time.</li>
+        <li>Sets that pixel to a colour (100, 0, 0)</li>
+        <li>Turns that pixel on</li>
+    </ul>
+    <p>See what you can change to make it behave differently.</p>
+    <ul>
+        <li>Can you change the colour?</li>
+        <li>What happens if you add a <code>sleep(500)</code> into the loop?</li>
+    </ul>
+    <br>
+  </div>
+
+  <nav class="links bg_pink">
+    <a href="index.html" target="_blank">Go Back</a>
+  </nav>
+
+  <footer class="links">
+    <a href="https://github.com/ScienceOxford/shine-on/" target="_blank">View on GitHub</a>
+  </footer>
+
+</body>
+
+</html>

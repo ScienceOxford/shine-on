@@ -23,35 +23,130 @@
   </div>
 
   <div id="starter" class="left">
-    <h3>Getting started with a BBC micro:bit</h3>
-    <p>...</p>
+    <h3>Creating your first micro:bit program</h3>
+    <p>Open <a href="https://codewith.mu/" target="_blank">the Mu editor</a> on your computer. <strong>If there is code on the screen</strong>, start a New program from the menu.</p>
+    <img src="https://raw.githubusercontent.com/ScienceOxford/cyber-pet/master/images/mu_toolbar_new.png" alt="Mu menu, highlighting 'New'" width="1000px" height="auto">
+    <p>Type these two lines of code into your blank window:</p>
+    <pre>from microbit import *
+display.show(Image.HAPPY)</pre>
+    <br>
+    <p>Plug your micro:bit into the computer, then click Flash:</p>
+    <img src="https://raw.githubusercontent.com/ScienceOxford/cyber-pet/master/images/mu_toolbar_flash.png" alt="Mu menu, highlighting 'Flash'" width="1000px" height="auto">
+    <p>Some code should be running on your micro:bit!</p>
+    <p><strong>If you get a message scrolling across the micro:bit's screen</strong>, this is an error message!</p>
+    <p><strong>Debug</strong> your code, then click Flash again to test your changes.</p>
+    <p>Once your code is working - change it!</p>
+    <p>Instead of <code>HAPPY</code>, can you think of another <code>Image</code> the micro:bit could <code>show</code> on its <code>display</code>?</p>
     <br>
   </div>
 
   <div id="wiring-LED" class="left">
     <h3>Connecting an LED</h3>
-    <p>...</p>
+    <p>The 'teeth' on the bottom of the micro:bit allow you to add extra components to your designs.</p>
+    <p>To start with, we will add a single LED.</p>
+    <img src="https://raw.githubusercontent.com/ScienceOxford/ElecKit/master/images/LED_wiring.JPG" alt="LED wiring photo" width="600px" height="auto">
+    <p>Take a crocodile clip, and connect one end of it to <strong>pin 0</strong> on your micro:bit.</p>
+    <p>Connect the other end of your crocodile clip to the <strong>positive</strong> lead of your LED (the longer one).</p>
+    <p>Connect a second crocodile clip between the <strong>GND pin</strong> on your micro:bit, and the <strong>negative</strong> lead of your LED (the shorter one).</p>
     <br>
   </div>
 
   <div id="coding-LED" class="left">
     <h3>Coding an LED</h3>
-    <p>...</p>
+    <p>Add the below code to your micro:bit program, underneath everything you have done so far... what happens to your LED?</p>
+    <pre>while True:
+    pin0.write_analog(1023)
+    sleep(500)
+    pin0.write_analog(0)
+    sleep(500)</pre>
+    <br>
+    <ul>
+        <li>What happens if you use a number lower than <code>1023</code>?</li>
+        <li>What do you need to change to make your LED flash faster, or slower?</li>
+        <li>What would you need to change in the code if you connected the LED to <strong>pin 1 or 2</strong> instead of pin 0?</li>
+    </ul>
+    <br>
+  </div>
+
+  <div id="wiring-RGB" class="left">
+    <h3>Wiring an RGB LED</h3>
+    <p>With a regular LED, you must choose a single colour.</p>
+    <p>An RGB LED has four legs, and is three LEDs in one. You can <strong>mix</strong> the colours to make any colour you want.</p>
+    <br>
+    <p>Disconnect your previous LED from the crocodile clips - leave them attached to the micro:bit though.</p>
+    <p>Find the long leg of the RGB LED, this one is the negative, and connect the crocodile clip attached to your micro:bit's GND pin to it.</p>
+    <p>Use your other crocodile clip to test out the three legs of the LED - which leg makes which colour?</p>
+    <br>
+    <p>ADD PICTURE OF WIRING HERE</p>
+    <br>
+    <p>Get two more crocodile clips and connect them up so that pins 0, 1 and 2 on the micro:bit all have a clip.</p>
+    <p>Connect up your LED so that:</p>
+    <ul>
+        <li>pin0 = red leg of RGB LED</li>
+        <li>pin1 = green leg of RGB LED</li>
+        <li>pin2 = blue leg of RGB LED</li>
+    </ul>
+    <br>
+  </div>
+
+  <div id="coding-RGB" class="left">
+    <h3>Coding an RGB LED</h3>
+    <p>Now that we have three colours in one, the code will get more complicated.</p>
+    <p>To make it easier to see what is going on, we are going to use <strong>variables</strong> to rename the micro:bit's pins (0, 1, 2) to the colours they are attached to.</p>
+    <p>Add the following lines of code to your program, <strong>before</strong> the <code>while True</code> loop:</p>
+    <pre>red = pin0
+green = pin1
+blue = pin2</pre>
+    <br>
+    <p>Inside your <code>while True</code> loop, your current code turns pin0 on and then off again. Change <code>pin0</code> to <code>red</code> and flash your code to your micro:bit - does the RGB LED flash red?</p>
+    <p>Your code should look something like this so far:</p>
+    <pre>from microbit import *
+
+red = pin0
+green = pin1
+blue = pin2
+
+while True:
+    red.write_analog(1023)
+    sleep(500)
+    red.write_analog(0)
+    sleep(500)</pre>
+    <br>
+    <br>
+    <p><strong>Expand your code</strong> to add the two other colours, like this:</p>
+    <pre>from microbit import *
+
+red = pin0
+green = pin1
+blue = pin2
+
+while True:
+    red.write_analog(1023)
+    green.write_analog(1023)
+    blue.write_analog(1023)
+    sleep(500)</pre>
+    <br>
+    <br>
+    <p><strong>Now experiment!</strong></p>
+    <p>What different colours can you make by changing the brightness of the red, green and blue lights?</p>
     <br>
   </div>
 
   <div id="extensions" class="left">
     <h3>What next?</h3>
-    <p>Now that you know how to connect lights to a BBC micro:bit, your imagination (and our supplies!) is your limit!</p>
+    <p>Now that you know how to connect lights to a BBC micro:bit, your imagination (and our supplies!) is your limit.</p>
+    <ul>
+        <li>We have strings of fairy lights, which you can connect instead of a single LED.</li>
+        <li>You could attach three seperate LEDs and make interesting patterns.</li>
+        <li>You could use craft supplies to turn your design into a decoration for the Light Festival - try making a lantern from lolly sticks and paper!</li>
+    </ul>
     <p>The links below give you some other ideas of things you could add to your design.</p>
     <br>
   </div>
 
   <nav class="links bg_green">
-    <a href="3V-fairy-lights.html" target="_blank">big fairy lights</a>
-    <a href="6V-fairy-lights.html" target="_blank">small fairy lights</a>
-    <a href="RGB-LED.html" target="_blank">rainbow LEDs</a>
-    <a href="neopixels.html" target="_blank">rainbow LED strings</a>
+    <a href="neopixels.html" target="_blank">neopixels</a>
+    <a href="random.html" target="_blank">randomisation</a>
   </nav>
 
   <footer class="links">
