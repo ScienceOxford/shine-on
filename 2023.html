@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JAN CCC NEOPIXEL CLUB TITLE</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header>
+    <a href="https://scienceoxford.com" target="_blank"><img src=".\images\so_logo.png" alt="Science Oxford Logo" width="400px" height="auto"></a>
+    <h1>CCC - JAN CCC NEOPIXEL CLUB TITLE</h1>
+  </header>
+
+  <div id="intro">
+    <p>Resources for the 'JAN CCC NEOPIXEL CLUB TITL' Creative Computing Club.</p>
+    <p>During this workshop, you will use a BBC micro:bit to control addressable LED strings, to make amazing light patterns.</p>
+    <p>This page recaps what <a href="https://bit.ly/Jan23CCC" target="_blank">we discussed as a group</a>.</p>
+    <br>
+  </div>
+
+  <div id="starter" class="left">
+    <h3>Coding a micro:bit in Python</h3>
+    <p>Open the new Python editor by visiting <a href="https://python.microbit.org/" target="_blank">python.microbit.org/</a>. Your screen will look something like this:</p>
+    <img src="https://raw.githubusercontent.com/ScienceOxford/musical-microbits/main/images/python-editor.PNG" alt="screenshot of the Python editor screen" width="800px" height="auto">
+    <br>
+    <ul>
+      <li>In the middle is where you will add your own code.</li>
+      <li>On the left-hand-side is the reference menu - you can see examples of some of the code here, as well as help understanding these examples.</li>
+      <li>On the right-hand-side is the simulator - a pretend micro:bit you can use to test your code.</li>
+      <li>On the bottom is the Send to Micro:bit button, which you will use to send code to your physical micro:bit.</li>
+    </ul>
+    <br>
+    <p>Edit the code on the screen, then flash it to your micro:bit to see the changes.</p>
+    <p>Try:</p>
+    <ul>
+        <li>Editing the image that is shown (hint: check the reference menu, under Display, for a list of images)</li>
+        <li>Changing the number in the brackets after sleep (hint: this tells the micro:bit how long to keep your image on the display)</li>
+        <li>Making the micro:bit scroll your name instead of 'Hello'</li>
+    </ul>
+    <br>
+  </div>
+
+  <div id="wiring-neopixels" class="left">
+    <h3>Wiring your Neopixels</h3>
+    <p>Neopixels are special LEDs connected together - you can program them all seperately from only one pin of the micro:bit!</p>
+    <p>They come in lots of shapes and sizes; if you are Science Oxford's workshop, you will have a choice of either a firm stick of 8, or a flexible strip of 10.</p>
+    <img src=".\images\neopixel-types.JPG" alt="10 square LEDs on a black strip; a strip of 8 square LEDs, closer together, on a black strip; a strip of 8 square LEDs, closer together, on a white strip" width="800px" height="auto">
+    <br>
+    <p>Neopixels have three connections:</p>
+    <ul>
+        <li>Ground / GND / - : connect this to the micro:bit's GND pin</li>
+        <li>Data / Din : connect this to the micro:bit's pin0</li>
+        <li>Power / 5V / + : connect this to the micro:bit's 3V pin</li>
+    </ul>
+    <img src="" alt="a close-up showing the three Neopixel connections, and crocodile clips attaching them to the micro:bit, as described above" width="800px" height="auto"></a>
+    <br>
+  </div>
+
+  <div id="coding-neopixels" class="left">
+    <h3>Turning them on</h3>
+    <p style="color:red">HAVE SOME STARTER CODE TO LOAD SO DON'T NEED TO TYPE ALL OF THIS IN FROM SCRATCH</p>
+    <p>To set them up, add the following lines of code:</p>
+    <pre>import neopixel
+lights = neopixel.NeoPixel(pin0, 10)</pre>
+    <br>
+    <p>In the brackets of the second line above, change <code>pin0</code> to the pin you have connected your Neopixels to, and <code>10</code> to the number of LEDs on your stick or strip.</p>
+    <br>
+    <p>Add the following code into your program and test it:</p>
+    <pre>for pixel in range(0, len(lights)):
+    lights[pixel] = (100, 0, 0)
+    lights.show()</pre>
+    <br>
+    <p>This code does the following things:</p>
+    <ul>
+        <li>Loops around every pixel in the strip, one at a time.</li>
+        <li>Sets that pixel to a colour (100, 0, 0)</li>
+        <li>Turns that pixel on</li>
+    </ul>
+    <p>See what you can change to make it behave differently.</p>
+    <ul>
+        <li>Can you change the colour?</li>
+        <li>What happens if you add a <code>sleep(500)</code> into the loop?</li>
+    </ul>
+    <br>
+  </div>
+
+  <div id="colours" class="left">
+    <h3>Adding colours</h3>
+    <p>A good way to test lots of colours is to label them, using <strong>variables</strong>.</p>
+    <p>-make variables for red, green, blue</p>
+    <p>-use variable in the loop</p>
+    <p>-mix colours - can go from 0 to 255 for each number - do this earlier so understand the concept before making the variables?</p>
+    <br>
+  </div>
+
+  <div id="random" class="left">
+    <h3>Picking colours at random</h3>
+    <p>-import random choice</p>
+    <p>-make list of all colours</p>
+    <p>-pick from the colours</p>
+    <br>
+  </div>
+
+  <div id="extensions" class="left">
+    <h3>extensions / next steps</h3>
+    <p>- how to use randint instead of choice</p>
+    <p>- make patterns, e.g. rainbow, gradients...</p>
+    <p>- reminder that it's good to keep it flexible for the number of pixels, so they can scale up or down without breaking things</p>
+    <p>- connect their micro:bit to the demo set-up of lots of neopixels - be ready to explain why it's redder at the ends (or have additional power)</p>
+  </div>
+
+  <footer class="links">
+    <a href="https://github.com/ScienceOxford/shine-on/" target="_blank">View on GitHub</a>
+  </footer>
+
+</body>
+
+</html>
