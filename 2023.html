@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>JAN CCC NEOPIXEL CLUB TITLE</title>
+  <title>CCC - Bright Lights</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +11,11 @@
 <body>
   <header>
     <a href="https://scienceoxford.com" target="_blank"><img src=".\images\so_logo.png" alt="Science Oxford Logo" width="400px" height="auto"></a>
-    <h1>CCC - JAN CCC NEOPIXEL CLUB TITLE</h1>
+    <h1>CCC - Bright Lights</h1>
   </header>
 
   <div id="intro">
-    <p>Resources for the 'JAN CCC NEOPIXEL CLUB TITL' Creative Computing Club.</p>
+    <p>Resources for the 'Bright Lights' Creative Computing Club.</p>
     <p>During this workshop, you will use a BBC micro:bit to control addressable LED strings, to make amazing light patterns.</p>
     <p>This page recaps what <a href="https://bit.ly/Jan23CCC" target="_blank">we discussed as a group</a>.</p>
     <br>
@@ -41,12 +41,24 @@
         <li>Making the micro:bit scroll your name instead of 'Hello'</li>
     </ul>
     <br>
+    <p class="debugging"><strong>Set-up code: </strong> if you are in our workshop, the following code will be in your program already. It is needed to make the later things work, and we will explain it as we go through.</p>
+    <p>If you are not in our workshop, copy and paste all of these lines into the top of your project:</p>
+    <pre>from microbit import *
+from random import randint, choice
+import neopixel
+
+lights = neopixel.NeoPixel(pin0, 10)
+
+red = (100, 0, 0)
+green = (0, 100, 0)
+blue = (0, 0, 100)</pre>
+      <br>
   </div>
 
   <div id="wiring-neopixels" class="left">
     <h3>Wiring your Neopixels</h3>
     <p>Neopixels are special LEDs connected together - you can program them all seperately from only one pin of the micro:bit!</p>
-    <p>They come in lots of shapes and sizes; if you are Science Oxford's workshop, you will have a choice of either a firm stick of 8, or a flexible strip of 10.</p>
+    <p>They come in lots of shapes and sizes; if you are Science Oxford's workshop, you will get a flexible strip of 10 to start with.</p>
     <img src=".\images\neopixel-types.JPG" alt="10 square LEDs on a black strip; a strip of 8 square LEDs, closer together, on a black strip; a strip of 8 square LEDs, closer together, on a white strip" width="800px" height="auto">
     <br>
     <p>Neopixels have three connections:</p>
@@ -61,51 +73,79 @@
 
   <div id="coding-neopixels" class="left">
     <h3>Turning them on</h3>
-    <p style="color:red">HAVE SOME STARTER CODE TO LOAD SO DON'T NEED TO TYPE ALL OF THIS IN FROM SCRATCH</p>
-    <p>To set them up, add the following lines of code:</p>
-    <pre>import neopixel
-lights = neopixel.NeoPixel(pin0, 10)</pre>
+    <p>To use the Neopixels, we have done some set-up code for you. The most important line is this one:</p>
+    <pre>lights = neopixel.NeoPixel(pin0, 10)</pre>
     <br>
-    <p>In the brackets of the second line above, change <code>pin0</code> to the pin you have connected your Neopixels to, and <code>10</code> to the number of LEDs on your stick or strip.</p>
+    <p>This says that you have connected them to <strong>pin0</strong>, and that there are <strong>10</strong> pixels in the strip. If this is not true, you can change these options.</p>
     <br>
-    <p>Add the following code into your program and test it:</p>
-    <pre>for pixel in range(0, len(lights)):
-    lights[pixel] = (100, 0, 0)
-    lights.show()</pre>
+    <p>Add the following code into your program (above<code> while True</code>) and test it:</p>
+    <pre>for i in range(0, 10):
+    lights[i] = red
+    lights.show()
+    sleep(1000)</pre>
     <br>
     <p>This code does the following things:</p>
     <ul>
         <li>Loops around every pixel in the strip, one at a time.</li>
-        <li>Sets that pixel to a colour (100, 0, 0)</li>
+        <li>Sets that pixel to red</li>
         <li>Turns that pixel on</li>
+        <li>Waits for 1 second before doing the next one</li>
     </ul>
-    <p>See what you can change to make it behave differently.</p>
+    <br>
+    <p><strong>See what you can change to make it behave differently.</strong></p>
     <ul>
         <li>Can you change the colour?</li>
-        <li>What happens if you add a <code>sleep(500)</code> into the loop?</li>
+        <li>What happens if you change to <code>sleep(50)</code>, or delete this line?</li>
     </ul>
+    <br>
+    <p class="debugging"><strong>Challenge: </strong>This code only works if you have exactly 10 neopixels. To make your code more robust, edit the for loop like this:</p>
+    <pre>for i in range(0, len(lights))</pre>
+    <br>
+    <p><code>len(lights) </code> tells the program to check how many pixels are in your set of lights, and run the loop until it reaches the end.</p>
     <br>
   </div>
 
   <div id="colours" class="left">
-    <h3>Adding colours</h3>
-    <p>A good way to test lots of colours is to label them, using <strong>variables</strong>.</p>
-    <p>-make variables for red, green, blue</p>
-    <p>-use variable in the loop</p>
-    <p>-mix colours - can go from 0 to 255 for each number - do this earlier so understand the concept before making the variables?</p>
+    <h3>Adding more colours</h3>
+    <p>So far, we have used 'red' 'green' and 'blue'. They have been defined using <strong>variables</strong>, so that you can use the name instead of the numbers that make them.</p>
+    <p>Each number has a format like this:</p>
+    <pre>colour-name = (red-amount, green-amount, blue-amount)</pre>
+    <br>
+    <p>The colours can be <strong>mixed</strong> to make different colours, e.g.</p>
+    <pre>yellow = (100, 100, 0)</pre>
+    <br>
+    <p>Use an online colour picker, like this one from <a href="https://www.w3schools.com/colors/colors_picker.asp" target="_blank">w3schools.com</a>, to find the RGB values of your favourite colours.</p>
+    <p>Choose two or three to start with, and make them into variables. Remember to test them by telling the lights to turn on to that colour!</p>
     <br>
   </div>
 
   <div id="random" class="left">
     <h3>Picking colours at random</h3>
-    <p>-import random choice</p>
-    <p>-make list of all colours</p>
-    <p>-pick from the colours</p>
+    <p>To allow the program to choose from all of your colours, you need to make a list of them.</p>
+    <p>Underneath all of your colour variables, add a line like this:</p>
+    <pre>colours = [red, green, blue, yellow]</pre>
+    <br>
+    <p>Add all of your colours from the last step.</p>
+    <p>Find the for loop where you told the lights which colour to be - instead of specifiying one colour, you are going to tell it to pick from the list:</p>
+    <pre>lights[i] = choice(colours)</pre>
+    <br>
+    <p>Test it out - does it pick different colours for each pixel? Are some the same?</p>
+    <br>
+    <p>To keep this going, you need to add the code to a<code> while True </code> loop. <strong>You can only have one of these at once in Python!</strong></p>
+    <p>Edit your code so that it looks like this:</p>
+    <pre>while True:
+    for i in range(0, 10):  
+      lights[i] = choice(colours)
+      lights.show()
+      sleep(1000)</pre>
+    <br>
+    <p>Your original code, with the images and text, will no longer work. This is because the light code is running forever, so the algorithm never reaches the other loop.</p>
+    <p>Either delete this code, or move your old code up into the new loop.</p>
     <br>
   </div>
 
   <div id="extensions" class="left">
-    <h3>extensions / next steps</h3>
+    <h3>What next?</h3>
     <p>- how to use randint instead of choice</p>
     <p>- make patterns, e.g. rainbow, gradients...</p>
     <p>- reminder that it's good to keep it flexible for the number of pixels, so they can scale up or down without breaking things</p>

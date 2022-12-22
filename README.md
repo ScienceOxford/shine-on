@@ -1,5 +1,5 @@
 # shine-on
-Files for the 1.5h Creative Computing Club, 'Shine Design'
+Files for the 1.5h Creative Computing Clubs, 'Shine Design' and 'Bright Lights'
 
 Visit here for the instructions: <https://scienceoxford.github.io/shine-on/>
 
