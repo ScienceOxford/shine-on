@@ -23,7 +23,7 @@ white = (50, 50, 50)
 colours = [red, orange, yellow, chartreuse, green, teal, blue, indigo, violet, white]
 
 while True:
-    for i in range(0, len(lights)):
+    for i in range(0, 10):
         # set the 0th light to the 0th colour and repeat
         lights[i] = colours[i]
         lights.show()

@@ -12,10 +12,11 @@ red = (100, 0, 0)
 green = (0, 100, 0)
 blue = (0, 0, 100)
 
+# these numbers only work properly if you have 10 lights
 amount_green = 10
 amount_red = 190
-for pixel in range(0, len(lights)):
-    lights[pixel] = (amount_red, amount_green, 0)
+for i in range(0, 10):
+    lights[i] = (amount_red, amount_green, 0)
     amount_green += 20
     amount_red -= 20
 lights.show()

@@ -15,6 +15,7 @@ blue = (0, 0, 100)
 while True:
     # check the current temperature
     temp = temperature()
+    display.scroll(temp)
     # change colour if hotter or colder than 30 degrees
     if temp >= 30:
         colour = red
